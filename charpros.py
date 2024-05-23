@@ -20,13 +20,39 @@ class Typer():
         self.key = ""
         self.spes_chars = "#$'%&{[()]}?!@/+-=<>|,.:;_~"   # You can add more special chars
         self.new_round = True
+        self.res_words = []
+        self.common_words = []
+        with open("reservedwords.txt", "r") as file:
+            for line in file:
+                stripped = line.strip("\n")
+                stripped = stripped.strip("\t")
+                self.res_words.append(stripped)
+        with open("commonwords.txt", "r") as file:
+            for line in file:
+                stripped = line.strip("\n")
+                stripped = stripped.strip("\t")
+                self.common_words.append(stripped)
+        print(self.res_words)
+        print(self.common_words)
 
 
     def new_typer(self):
         # Make new practice string
+        self.seq_len = 3
         self.orig_text = ""
-        for x in range(self.seq_len):
-            self.orig_text += random.choice(string.ascii_letters + string.digits + self.spes_chars)
+        strategy = random.randint(0, 4)
+        # Random chars
+        if strategy < 3:
+            for x in range(self.seq_len):
+                self.orig_text += random.choice(string.ascii_letters + string.digits + self.spes_chars)
+        # Random common words
+        elif strategy == 3:
+            self.orig_text = random.choice(self.common_words) + " " + random.choice(self.common_words)
+            self.seq_len = len(self.orig_text)
+        # Random coding words 
+        elif strategy > 3:
+            self.orig_text = random.choice(self.res_words)
+            self.seq_len = len(self.orig_text)
         self.text = self.orig_text
         self.buffer = ""
         self.success = 0
@@ -36,6 +62,7 @@ class Typer():
     def calc_cpm(self):
         # How fast was the player
         self.dur = time.time() - self.start
+        print("Seq len: ", self.seq_len)
         self.cpm = (60 / (self.dur / self.seq_len))
         print("CPM: ", self.cpm)
         return self.cpm
