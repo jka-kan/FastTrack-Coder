@@ -7,14 +7,15 @@ Improve your code typing speed with fun game
 
 ## How It Works
 
-In FastTrack Coder, you will be challenged to type three-character strings displayed on the screen as quickly as possible. Simultaneously, rectangles will start dropping from the top of the screen, increasing in speed over time. The game ends when the bottom line is filled with boxes. This mechanic pushes the player to type faster and more accurately to keep up with the dropping boxes. Each correct key press deletes one rectangle.
+In FastTrack Coder, you will be challenged to type three-character strings displayed on the screen as quickly as possible. Simultaneously, rectangles will start dropping from the top of the screen, increasing in speed over time. The game ends when the bottom line is filled with boxes. This mechanic pushes the player to type faster and more accurately to keep up with the dropping boxes. Each correct key press deletes one rectangle. The game also asks randomly you to type some words: 1) common reserverd words used in Python and Javascript, 2) combination of English words.
 
 ## Features
 
 - **Focused Typing Practice**: Concentrates on short three-character strings to improve speed and accuracy with special characters.
 - **Game Format**: Engaging game mechanics make learning to type faster both fun and challenging.
 - **Dynamic Difficulty**: The speed of dropping rectangles increases over time, encouraging continuous improvement.
-- **Immediate Feedback**: Quick typing of short strings helps build muscle memory and typing reflexes, making it easier to progress to longer strings and real code.
+- **Immediate Feedback**: Quick typing of short strings helps build muscle memory and typing reflexes, making it easier to progress to longer strings and real code. 
+
 
 ## Why FastTrack Coder?
 
@@ -35,7 +36,7 @@ If the game still is too difficult you can:
 To make the game more difficult:
 - Increase amount of characters in self.seq_length in charpros.py
 
-
+You can also extended the word lists reserverdwords.txt and commonwords.txt by adding new words in to those files.
 
 ## Getting Started
 
@@ -62,4 +63,3 @@ To make the game more difficult:
 
 Have fun typing!
 
-Jannne Kankaala
