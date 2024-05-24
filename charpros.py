@@ -32,8 +32,6 @@ class Typer():
                 stripped = line.strip("\n")
                 stripped = stripped.strip("\t")
                 self.common_words.append(stripped)
-        print(self.res_words)
-        print(self.common_words)
 
 
     def new_typer(self):
@@ -56,13 +54,11 @@ class Typer():
         self.text = self.orig_text
         self.buffer = ""
         self.success = 0
-        print("\n  ", self.text)
         return self.text
 
     def calc_cpm(self):
         # How fast was the player
         self.dur = time.time() - self.start
-        print("Seq len: ", self.seq_len)
         self.cpm = (60 / (self.dur / self.seq_len))
         print("CPM: ", self.cpm)
         return self.cpm

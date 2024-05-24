@@ -45,7 +45,6 @@ def main():
                     _,reset = typer.run_typer(char)
                     if reset:
                         counter = Counter()
-                    print(event.key)
                     try:
                         columns.remove_rect()
                     except IndexError:
