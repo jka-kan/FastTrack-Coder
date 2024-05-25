@@ -23,8 +23,9 @@ def main():
     start_time = time.time()
 
     typer = Typer()
-
     while running:
+        wrong_char = False
+
         # Get string, wait for input and react
         chars,_ = typer.run_typer()
         char = chars[0]
@@ -49,9 +50,16 @@ def main():
                         columns.remove_rect()
                     except IndexError:
                         pass
+                # If wrong key, flash screen
+                # Don't flash if modifier key because these may be needed for special characters
+                elif event.unicode != char and event.key not in Cons.modifier_keys:
+                    wrong_char = True
 
         # Display text
-        pygameobj.screen.fill(Cons.BLACK)
+        if wrong_char:
+            pygameobj.screen.fill(Cons.FAIL)
+        else:
+            pygameobj.screen.fill(Cons.BLACK)
         text = pygameobj.font.render(chars, True, Cons.WHITE)
         text_rect = text.get_rect(center=(Cons.width // 2, Cons.height // 2))
         pygameobj.screen.blit(text, text_rect)

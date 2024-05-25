@@ -9,14 +9,8 @@ class PygameObj():
         pygame.display.set_caption("FastTrack Coder - Type the characters as fast as you can")
         self.screen = pygame.display.set_mode((Cons.width, Cons.height))
         self.font = pygame.font.Font(None, 36)
-        self.text = self.font.render("Hello, World!", True, Cons.BLUE)
+        self.text = self.font.render("", True, Cons.WHITE)
         self.text_rect = self.text.get_rect(center=(Cons.width // 2, Cons.height // 2))
-
-        # Main game loop
-#        self.running = True
-
-        # Initialize Pygame
-
         self.clock = pygame.time.Clock()
 
     def quit_game(self):

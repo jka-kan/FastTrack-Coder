@@ -22,7 +22,6 @@ class Rectangle():
     def check_bottom(self):
         if not self.bottom_reached:
             if self.rect_pos.y >= (Cons.height - self.rect_pos.height):
-                print("BOTTOM")
                 self.bottom_reached = True
 
 
